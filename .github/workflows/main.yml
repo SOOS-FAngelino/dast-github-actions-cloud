@@ -10,7 +10,7 @@ jobs:
         with:
           client_id: ${{ secrets.SOOS_CLIENT_ID }}
           api_key: ${{ secrets.SOOS_API_KEY }}
-          project_name: "selene-github-action-dast"
+          project_name: "PackageAware/dast-github-actions-cloud"
           scan_mode: "baseline"
           api_url: "https://qa-api.soos.io/api/"
           target_url: "https://brokencrystals.com/"
