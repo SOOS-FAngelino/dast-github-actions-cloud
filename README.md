@@ -1,2 +1,2 @@
 # github-actions-dast-test
-test 5
+test 6
