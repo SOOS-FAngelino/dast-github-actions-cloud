@@ -6,13 +6,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run SOOS DAST Baseline Analysis
-        uses: soos-io/soos-dast-github-action@v1.0.2
+        uses: soos-io/soos-dast-github-action@v1.1.1
         with:
           client_id: ${{ secrets.SOOS_CLIENT_ID }}
           api_key: ${{ secrets.SOOS_API_KEY }}
-          project_name: "PackageAware/dast-github-actions-cloud"
+          project_name: "dast-github-actions-cloud"
           scan_mode: "baseline"
           api_url: "https://qa-api.soos.io/api/"
           target_url: "https://brokencrystals.com/"
-          sarif: true
-          gpat: ${{ secrets.SOOS_GPAT }}
+          output_format: "sarif"
+      - name: Upload SOOS DAST Report # 3rd party action to upload sarif results to your github repo
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: results.sarif
